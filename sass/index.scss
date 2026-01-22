@@ -1,0 +1,752 @@
+@use "./base" as *;
+@use "./mixin" as *;
+@use "./variable" as *;
+@use "./component.scss" as*;
+
+.header {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    ;
+
+    // background-image: url(/images/yellow_top_wave_01.png);
+    // background-position: left top;
+    // background-size: 95% 150%;
+    // background-repeat: no-repeat;
+    .container {
+        padding: 20px 0px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            a {
+                @include style_text($text-2xl, $fw-semibold, $color-dark);
+                position: relative;
+                text-decoration: none;
+                transition: color 0.5s;
+
+                &:hover {
+                    color: $color-warning;
+                    cursor: pointer;
+                    transition: color 0.5s;
+
+                    &::after {
+                        width: 100%;
+                        transition: width 0.5s;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    height: 5px;
+                    width: 0%;
+                    background: $bg-warning;
+                    bottom: -8px;
+                    left: 0px;
+                    transition: width 0.5s;
+                }
+            }
+        }
+
+        .menu-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            .contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
+                width: 220px;
+                height: 50px;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                i {
+                    color: $color-dark;
+                    font-size: $text-3xl;
+                    transition: color 0.5s;
+
+                    &:hover {
+                        color: $color-warning;
+                        cursor: pointer;
+                        transition: color 0.5s;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.carousel {
+
+    background-image: url(/images/yellow_top_wave_01.png), url(/images/purple_bottom_wave_01.png);
+    background-repeat: no-repeat;
+    background-position: top left, bottom center;
+    background-size: contain;
+
+    .container {
+        min-height: 700px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+
+        .learn {
+            h1 {
+                @include style_text($text-3xl, $fw-semibold, $color-primary);
+                margin-bottom: $m-1;
+            }
+
+            p {
+                @include style_text($text-8xl, $fw-bold, $color-dark);
+                margin-bottom: $m-1;
+            }
+
+            .spanish {
+                @include style_text($text-8xl, $fw-medium, $color-dark);
+                margin-bottom: $m-4;
+            }
+
+            .apply {
+                @include style_btn($text-2xl, $fw-semibold, $color-light, $bg-primary, $p-1 $p-2, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+        }
+
+        .img {
+            img {
+                height: 100%;
+            }
+
+            .img-chat {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                @for $i from 1 to 5 {
+                    .chat-#{$i} {
+                        animation: fade-down 1s;
+                        animation-iteration-count: infinite;
+                    }
+                }
+
+                img {
+                    position: absolute; // Tất cả các chat đều dùng absolute
+                    width: 200px; // Điều chỉnh kích thước bong bóng cho vừa phải
+                    height: auto;
+                }
+
+                .chat-1 {
+                    bottom: 55px;
+                    left: -15px;
+                }
+
+                .chat-2 {
+                    right: 35px;
+                    bottom: 25px;
+                }
+
+                .chat-3 {
+                    right: 10px;
+                    top: -800px;
+                }
+
+                .chat-4 {
+                    right: -10px;
+                    top: -500px;
+                }
+
+            }
+        }
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.card {
+    min-height: 200px;
+    border: 0;
+    margin-top: 60px;
+
+    .container {
+        .row {
+            height: 100%;
+            width: 90%;
+            margin: 0px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            width: calc(100%/3);
+
+            .card-item {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding: $p-3;
+                transition: all 0.5s;
+
+                &:hover {
+
+                    .card-info .card-title,
+                    .card-info .card-view,
+                    .card-info .card-view i {
+                        color: $color-dark;
+                        transition: all 0.5s;
+                    }
+
+                    i {
+                        color: $color-primary;
+                        transition: all 0.5s;
+                    }
+                }
+
+                i {
+                    @include style_text($text-8xl, $fw-medium, $color-dark);
+                    transition: all 0.5s;
+                }
+
+                .card-info {
+                    .card-title {
+                        @include style_text($text-2xl, $fw-semibold, $color-primary);
+                        padding-bottom: $p-1;
+                        transition: all 0.5s;
+                    }
+
+                    .card-desc {
+                        @include style_text($text-2xl, $fw-base, $color-dark);
+                        padding-bottom: $p-2;
+                    }
+
+                    .card-view {
+                        display: flex;
+                        align-items: center;
+                        transition: all 0.5s;
+                        @include style_text($text-2xl, $fw-semibold, $color-primary);
+
+                        i {
+                            font-size: 30px;
+                            color: $color-primary;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about-us {
+    min-height: 800px;
+    @extend .mb-5;
+    background-image: url(/images/Violet_top_left_wave.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    margin-top: 60px;
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+
+        .left-column {
+            height: 100%;
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .slide {
+                width: calc(100%/4);
+
+                .bubble-box {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    padding-top: $p-3;
+                    border: 5px dotted $border-warning;
+                    border-radius: 40px 40px 40px 40px;
+                    margin-right: $m-3;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        border: 5px double $border-warning;
+                        transform: translateY(-20px);
+                        transition: all 0.5s;
+                    }
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .student-desc {
+                        width: 80%;
+
+                        .quote {
+                            @include style_text($text-2xl, $fw-medium, $color-dark);
+                            font-style: italic;
+                            text-align: center;
+                            padding-bottom: $p-2;
+                        }
+
+                        .name {
+                            @include style_text($text-xl, $fw-semibold, $color-primary);
+                            text-align: center;
+                            padding-bottom: $p-1;
+                        }
+
+                        .job {
+                            @include style_text($text-xl, $fw-semibold, $color-dark);
+                            text-align: center;
+                            padding-bottom: $p-2;
+                        }
+                    }
+                }
+            }
+        }
+
+        .language-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .label {
+                @include style_text($text-xl, $fw-semibold, $color-primary);
+                margin: $m-1 auto;
+            }
+
+            h1 {
+                @include style_text($text-3xl, $fw-bold, $color-dark);
+            }
+
+            .main-desc {
+                width: 60%;
+                text-align: center;
+                @include style_text($text-2xl, $fw-base, $color-dark);
+                margin-bottom: $m-5;
+            }
+
+            .apply-btn {
+                @include style_btn($text-2xl, $fw-semibold, $color-light, $bg-primary, $p-1 $p-2, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+        }
+
+    }
+}
+
+.courses {
+    min-height: 600px;
+    margin-top: 50px;
+
+    .container {
+        @extend .pt-5;
+
+        .row-course {
+            height: 100%;
+            width: 80%;
+            margin: 0px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .col-course {
+                width: calc(100%/3);
+                overflow-y: hidden;
+
+                .card-class {
+                    padding: $p-2;
+                    margin: $m-2;
+                    transition: box-shadow 0.5s;
+
+                    &:hover {
+                        box-shadow: 0px 10px 13px -7px #000000, 0px 8px 12px -10px rgba(0, 0, 0, 0.2);
+                        transition: box-shadow 0.5s;
+                    }
+
+                    img {
+                        width: 100%;
+                        border-radius: 20px 20px 0px 0px;
+                    }
+
+                    .course-body {
+                        @extend .px-3;
+
+                        .course-title {
+                            @include style_text($text-xl, $fw-medium, $color-dark);
+                            margin: $m-2 auto;
+                        }
+
+                        .subject {
+                            @include style_text($text-2xl, $fw-bold, $color-dark);
+                        }
+
+                        .subject-desc {
+                            @include style_text($text-xl, $fw-base, $color-dark);
+                        }
+
+                        .course-view {
+                            @include style_text($text-xl, $fw-medium, $color-warning);
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            transition: color 0.5s;
+
+                            i {
+                                @include style_text($text-3xl, $fw-medium, $color-warning);
+                                transition: color 0.5s;
+                            }
+
+                            &:hover {
+                                color: $color-dark;
+                                cursor: pointer;
+                                transition: color 0.5s;
+
+                                i {
+                                    color: $color-dark;
+                                    cursor: pointer;
+                                    transition: color 0.5s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.begin {
+    min-height: 500px;
+    margin-top: $m-4;
+    background-image: url(/images/purple_bottom_wave_01.png);
+    background-size: cover;
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+
+        .description {
+            .title {
+                @include style_text($text-2xl, $fw-semibold, $color-primary);
+            }
+
+            .title-desc {
+                @include style_text($text-5xl, $fw-bold, $color-dark);
+                width: 70%;
+            }
+
+            .desc {
+                @include style_text($text-2xl, $fw-base, $color-dark);
+            }
+
+            .btn-begin {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 30px;
+
+                .btn-schedule {
+                    @include style_btn($text-xl, $fw-semibold, $color-light, $bg-primary, $p-1 $p-2, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                    width: 220px;
+                    height: 70px;
+                }
+
+                .btn-contact {
+                    @include style_btn($text-xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                    width: 220px;
+                    height: 70px;
+                }
+            }
+        }
+
+        .img-desc {
+            animation: fade-down 1s;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.level {
+    min-height: 500px;
+    padding-top: $p-4;
+    background-color: #dcd1f2;
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: $p-3 $p-0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+
+        .img-level {
+            animation: fade-down 1s;
+            animation-iteration-count: infinite;
+        }
+
+        .level-b2 {
+            .b2 {
+                @include style_text($text-2xl, $fw-semibold, $color-primary);
+                margin-bottom: $m-1;
+            }
+
+            .intro-b2 {
+                @include style_text($text-4xl, $fw-semibold, $color-dark);
+                margin-bottom: $m-1;
+            }
+
+            .intro-desc {
+                @include style_text($text-2xl, $fw-base, $color-dark);
+            }
+
+            .accordion {
+                .accordion-item {
+                    .accordion-header {
+                        .accordion-button {
+                            @include style_text($text-2xl, $fw-semibold, $color-primary);
+                            background-color: #dcd1f2;
+
+                            i {
+                                @include style_text($text-3xl, $fw-bold, $color-dark);
+                                padding-right: $p-4;
+                            }
+                        }
+                    }
+
+                    .accordion-collapse {
+                        background-color: #dcd1f2;
+
+                        .accordion-body {
+                            width: 90%;
+                            margin: 0 auto;
+                            @include style_text($text-xl, $fw-base, $color-dark);
+                        }
+                    }
+                }
+            }
+
+            .view-more {
+                margin-top: $m-4;
+                @include style_btn($text-xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+        }
+    }
+}
+
+.offer {
+    min-height: 500px;
+    margin-top: 60px;
+
+    .container {
+        width: 80%;
+        padding-top: $p-5;
+        position: relative;
+
+        .speech {
+            position: absolute;
+            top: -30px;
+            left: 28px;
+            animation: fade-down 1s;
+            animation-iteration-count: infinite;
+            z-index: 1;
+        }
+
+        .card-offer {
+            background-color: #b61984;
+            margin: 0 auto;
+            width: 1100px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 20px 20px 20px 20px;
+
+            .card-intro {
+                z-index: 2;
+
+                .special {
+                    @include style_text($text-2xl, $fw-medium, $color-light);
+                    margin-bottom: $m-0;
+                }
+
+                .introduction {
+                    @include style_text($text-5xl, $fw-bold, $color-light);
+                    margin-bottom: $m-0;
+                }
+
+                .card-price {
+                    @include style_text($text-5xl, $fw-bold, $color-light);
+                }
+
+                .offer-more {
+                    @include style_btn($text-xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, $bg-primary, $color-light);
+                    width: 220px;
+                    height: 70px;
+                }
+            }
+
+            .img-offer {
+                width: 500px;
+                height: 400px;
+            }
+        }
+    }
+}
+
+.event {
+    min-height: 800px;
+    margin: 60px 0px;
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding: $p-5 auto;
+
+        .event-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .name-event {
+                @include style_text($text-5xl, $fw-bold, $color-dark);
+            }
+
+            .event-more {
+                @include style_btn($text-xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+        }
+
+        .workshop {
+            .row {
+                .col {
+                    .card {
+                        img{
+                            border-radius: 30px 30px 0px 0px;
+                        }
+                        .card-body {
+                            .card-title-1 {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 25px;
+
+                                .card-title {
+                                    @include style_text($text-3xl, $fw-bold, $color-warning);
+                                    width: 25%;
+                                    text-align: center;
+                                    border-right: 2px solid #000000;
+                                }
+
+                                .card-chat {
+                                    @include style_text(25px, $fw-bold, $color-dark);
+                                }
+                            }
+
+                            .text-workshop {
+                                @include style_text($text-xl, $fw-base, $color-dark);
+                            }
+
+                            .card-view {
+                                @include style_text($text-xl, $fw-medium, $color-primary);
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                transition: color 0.5s;
+
+                                i {
+                                    @include style_text($text-3xl, $fw-medium, $color-primary);
+                                    transition: color 0.5s;
+                                }
+
+                                &:hover {
+                                    color: $color-dark;
+                                    cursor: pointer;
+                                    transition: color 0.5s;
+
+                                    i {
+                                        color: $color-dark;
+                                        cursor: pointer;
+                                        transition: color 0.5s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

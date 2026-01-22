@@ -1,0 +1,24 @@
+@use "./variable" as *;
+@mixin style_text($fz, $fw,$c){
+    font-size: $fz;
+    font-weight: $fw;
+    color: $c;
+}
+@mixin style_btn($fz, $fw,$c, $bg, $paddding, $border, $br, $bgHover, $colorHover){
+    font-size: $fz;
+    font-weight: $fw;
+    color: $c;
+    background: $bg;
+    padding:$paddding;
+    border:$border;
+    border-radius: $br;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover{
+        background: $bgHover;
+        color: $colorHover;
+        transition: all 0.5s;
+
+    }
+}

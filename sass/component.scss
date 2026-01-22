@@ -1,0 +1,73 @@
+//định nghĩa các class component spacing
+$spacingValues: 0rem, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem;
+$i: 0;
+
+@each $size in $spacingValues {
+    .m-#{$i} {
+        margin: $size;
+    }
+
+    .my-#{$i} {
+        margin-top: $size;
+        margin-bottom: $size;
+    }
+
+    .mx-#{$i} {
+        margin-left: $size;
+        margin-right: $size;
+    }
+
+    .mt-#{$i} {
+        margin-top: $size;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $size;
+    }
+
+    .ms-#{$i} {
+        margin-left: $size;
+
+    }
+
+    .me-#{$i} {
+        margin-right: $size;
+    }
+
+    .p-#{$i} {
+        padding: $size;
+    }
+
+    .py-#{$i} {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+
+    .px-#{$i} {
+        padding-left: $size;
+        padding-right: $size;
+    }
+
+    .pt-#{$i} {
+        padding-top: $size;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: $size;
+    }
+
+    .ps-#{$i} {
+        padding-left: $size;
+    }
+
+    .pe-#{$i} {
+        padding-right: $size;
+    }
+
+
+    $i: $i + 1;
+}
+.btn{
+    height: 220px;
+    width: 70px;
+}
