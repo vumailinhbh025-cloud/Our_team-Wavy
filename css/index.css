@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -279,7 +280,7 @@
   padding: 1rem;
 }
 
-.py-4 {
+.py-4, .number .container {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -309,7 +310,7 @@
   margin: 1.25rem;
 }
 
-.my-5 {
+.my-5, .register .container .form-course .message .form-floating {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -339,7 +340,7 @@
   padding: 1.25rem;
 }
 
-.py-5 {
+.py-5, .number .container .row .col .card-number, .footer .container, .footer .container .row, .footer-aboutus .container, .footer-aboutus .container .row {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
@@ -365,9 +366,17 @@
   padding-right: 1.25rem;
 }
 
-.btn {
-  height: 220px;
-  width: 70px;
+.btn-warning {
+  border-radius: 50px;
+  padding: 15px 30px;
+  cursor: pointer;
+  border: 2px solid #ee5b54;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  background: #ee5b54;
+  width: 180px;
+  height: 56px;
 }
 
 .header {
@@ -1060,7 +1069,7 @@
 }
 
 .event {
-  min-height: 800px;
+  min-height: 700px;
   margin: 60px 0px;
 }
 .event .container {
@@ -1149,4 +1158,765 @@
   color: #000;
   cursor: pointer;
   transition: color 0.5s;
+}
+.event .container .workshop .row .col .card .card-body .card-view2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: color 0.5s;
+}
+.event .container .workshop .row .col .card .card-body .card-view2 i {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+  transition: color 0.5s;
+}
+.event .container .workshop .row .col .card .card-body .card-view2:hover {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.event .container .workshop .row .col .card .card-body .card-view2:hover i {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.number {
+  min-height: 500px;
+  background-image: url(/images/background_02.jpg);
+  background-position: left center;
+  background-attachment: fixed;
+}
+.number .container {
+  height: 100%;
+}
+.number .container .row {
+  margin: 0 auto;
+}
+.number .container .row .col {
+  height: 450px;
+  padding: 1.25rem 1rem;
+}
+.number .container .row .col .card-number {
+  text-align: center;
+}
+.number .container .row .col .card-number h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #b61984;
+}
+.number .container .row .col .card-number .number-price {
+  font-size: 60px;
+  font-weight: 700;
+  color: #000;
+}
+.number .container .row .col .card-number .number-desc {
+  font-size: 20px;
+  font-weight: 500;
+  color: #b61984;
+  position: relative;
+  margin-bottom: 60px;
+}
+.number .container .row .col .card-number .number-desc::after {
+  width: 25%;
+  position: absolute;
+  content: "";
+  height: 2px;
+  background-color: #ee5b54;
+  transform: translateX(-148px);
+  bottom: -35px;
+}
+.number .container .row .col .card-number .number-description {
+  font-size: 18px;
+  font-weight: normal;
+  color: #000;
+  padding: 7px 60px;
+}
+.number .container .row .card-col-2 {
+  height: 480px;
+  background: #fff;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.img-slider {
+  height: 480px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.img-slider .container-wrapper {
+  white-space: nowrap;
+  max-width: 1350px;
+  margin: 0 auto;
+  position: relative;
+}
+.img-slider .container-wrapper i {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: #fff;
+  line-height: 30px;
+  border-radius: 50%;
+}
+.img-slider .container-wrapper i:first-child {
+  left: 10px;
+}
+.img-slider .container-wrapper i:last-child {
+  right: 10px;
+}
+.img-slider .container-wrapper .slider-carousel {
+  display: flex;
+  /* Đảm bảo các ảnh nằm trên một hàng */
+  overflow-x: hidden;
+  /* Ẩn thanh cuộn bên dưới */
+  scroll-behavior: smooth;
+  /* Tạo hiệu ứng cuộn mượt mà */
+}
+.img-slider .container-wrapper .slider-carousel img {
+  height: 350px;
+  object-fit: cover;
+  width: 25%;
+}
+
+.register {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/accent_bottom_wave_01.png);
+  background-position: bottom center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.register .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+.register .container .form-course {
+  background-color: #fff;
+  height: 520px;
+  width: 450px;
+  border-radius: 10px 10px 10px 10px;
+  padding: 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 2px outset #ee5b54;
+}
+.register .container .form-course h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #000;
+}
+.register .container .form-course .form-infomation .row .col-6 .input-group span i {
+  color: #ee5b54;
+  font-size: 20px;
+}
+.register .container .form-course .english .form-floating {
+  width: 405px;
+}
+.register .container .form-course .english .form-floating label i {
+  color: #ee5b54;
+  font-size: 20px;
+}
+.register .container .form-course .message .form-floating textarea {
+  height: 200px;
+  width: 406px;
+  resize: vertical;
+  /* Thường dùng để tránh làm vỡ giao diện hàng ngang */
+  overflow: auto;
+  /* Hiện thanh cuộn nếu chữ vượt quá khung */
+}
+.register .container .form-course .message .form-floating label {
+  font-size: 20px;
+}
+.register .container .form-course .message .form-floating label i {
+  color: #ee5b54;
+  font-size: 18px;
+}
+.register .container .form-course .btn-send {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  background: #ee5b54;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #ee5b54;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 180px;
+  height: 56px;
+}
+.register .container .form-course .btn-send:hover {
+  background: #fff;
+  color: #ee5b54;
+  transition: all 0.5s;
+}
+
+.footer {
+  min-height: 500px;
+  background-image: url(/images/footer_background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.footer .container {
+  width: 80%;
+}
+.footer .container .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .container .row .col-item1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .container .row .col-item1 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer .container .row .col-item1 .address {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer .container .row .col-item1 .address p {
+  margin-bottom: 0;
+}
+.footer .container .row .col-item1 .address i {
+  color: #fff;
+}
+.footer .container .row .col-item1 .telephone {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer .container .row .col-item1 .telephone p {
+  margin-bottom: 0;
+}
+.footer .container .row .col-item1 .telephone i {
+  color: #fff;
+}
+.footer .container .row .col-item1 .time {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer .container .row .col-item1 .time p {
+  margin-bottom: 0;
+}
+.footer .container .row .col-item1 .time i {
+  color: #fff;
+}
+.footer .container .row .col-item1 .footer-social {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.footer .container .row .col-item1 .footer-social i {
+  color: #fff;
+  font-size: 20px;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item1 .footer-social i:hover {
+  color: #000;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .container .row .col-item2 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer .container .row .col-item2 .link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer .container .row .col-item2 .link h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item2 .link h3:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item2 .link .active {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item2 .link .active:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .container .row .col-item3 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer .container .row .col-item3 .footer-about {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer .container .row .col-item3 .footer-about h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item3 .footer-about h3:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item3 .footer-about .active {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item3 .footer-about .active:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer .container .row .col-item4 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer .container .row .col-item4 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer .container .row .col-item4 .footer-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer .container .row .col-item4 .footer-btn .mail {
+  border-radius: 50px 50px 50px 50px;
+  height: 56px;
+  color: #fff;
+  background-color: #b61984;
+  border: 2px solid #b61984;
+  box-shadow: none;
+  transition: border 0.5s;
+}
+.footer .container .row .col-item4 .footer-btn .mail::placeholder {
+  text-align: center;
+  color: #fff;
+  /* Hoặc dùng biến $color-light nếu nó là màu trắng */
+  opacity: 1;
+  /* Đảm bảo màu hiển thị rõ trên Firefox */
+}
+.footer .container .row .col-item4 .footer-btn .mail:hover {
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: border 0.5s;
+}
+.footer .container .row .col-item4 .footer-btn .btn-subscribe {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 305px;
+  height: 56px;
+}
+.footer .container .row .col-item4 .footer-btn .btn-subscribe:hover {
+  background: #aa017e;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.header-about {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.header-about .container {
+  padding: 20px 0px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+.header-about .container .menu {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.header-about .container .menu a {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.header-about .container .menu a:hover {
+  color: #ee5b54;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.header-about .container .menu a:hover::after {
+  width: 100%;
+  transition: width 0.5s;
+}
+.header-about .container .menu a::after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 0%;
+  background: #ee5b54;
+  bottom: -8px;
+  left: 0px;
+  transition: width 0.5s;
+}
+.header-about .container .menu-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.header-about .container .menu-social .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+  background: #ee5b54;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #ee5b54;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 220px;
+  height: 50px;
+}
+.header-about .container .menu-social .contact:hover {
+  background: #fff;
+  color: #ee5b54;
+  transition: all 0.5s;
+}
+.header-about .container .menu-social .social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.header-about .container .menu-social .social i {
+  color: #000;
+  font-size: 30px;
+  transition: color 0.5s;
+}
+.header-about .container .menu-social .social i:hover {
+  color: #ee5b54;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.carousel-about {
+  background-image: url(/images/yellow_top_wave_01.png), url(/images/Violet_top_left_wave.png);
+  background-repeat: no-repeat;
+  background-position: top left, bottom center;
+  background-size: contain;
+  height: 750px;
+  position: relative;
+}
+.carousel-about .container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  transform: translate(200px, 75px);
+}
+.carousel-about .container .book h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #b61984;
+}
+.carousel-about .container .book p {
+  font-size: 60px;
+  font-weight: 700;
+  color: #000;
+  width: 80%;
+}
+
+.footer-aboutus {
+  min-height: 500px;
+  background-image: url(/images/footer_background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.footer-aboutus .container {
+  width: 80%;
+}
+.footer-aboutus .container .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-aboutus .container .row .col-item1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-aboutus .container .row .col-item1 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer-aboutus .container .row .col-item1 .address {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer-aboutus .container .row .col-item1 .address p {
+  margin-bottom: 0;
+}
+.footer-aboutus .container .row .col-item1 .address i {
+  color: #fff;
+}
+.footer-aboutus .container .row .col-item1 .telephone {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer-aboutus .container .row .col-item1 .telephone p {
+  margin-bottom: 0;
+}
+.footer-aboutus .container .row .col-item1 .telephone i {
+  color: #fff;
+}
+.footer-aboutus .container .row .col-item1 .time {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer-aboutus .container .row .col-item1 .time p {
+  margin-bottom: 0;
+}
+.footer-aboutus .container .row .col-item1 .time i {
+  color: #fff;
+}
+.footer-aboutus .container .row .col-item1 .footer-social {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.footer-aboutus .container .row .col-item1 .footer-social i {
+  color: #fff;
+  font-size: 20px;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item1 .footer-social i:hover {
+  color: #000;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-aboutus .container .row .col-item2 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer-aboutus .container .row .col-item2 .link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-aboutus .container .row .col-item2 .link h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item2 .link h3:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item2 .link .active {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item2 .link .active:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-aboutus .container .row .col-item3 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer-aboutus .container .row .col-item3 .footer-about {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-aboutus .container .row .col-item3 .footer-about h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item3 .footer-about h3:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item3 .footer-about .active {
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item3 .footer-about .active:hover {
+  color: #ee5b54;
+  transition: color 0.5s;
+}
+.footer-aboutus .container .row .col-item4 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-aboutus .container .row .col-item4 h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0px;
+}
+.footer-aboutus .container .row .col-item4 .footer-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-aboutus .container .row .col-item4 .footer-btn .mail {
+  border-radius: 50px 50px 50px 50px;
+  height: 56px;
+  color: #fff;
+  background-color: #b61984;
+  border: 2px solid #b61984;
+  box-shadow: none;
+  transition: border 0.5s;
+}
+.footer-aboutus .container .row .col-item4 .footer-btn .mail::placeholder {
+  text-align: center;
+  color: #fff;
+  /* Hoặc dùng biến $color-light nếu nó là màu trắng */
+  opacity: 1;
+  /* Đảm bảo màu hiển thị rõ trên Firefox */
+}
+.footer-aboutus .container .row .col-item4 .footer-btn .mail:hover {
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: border 0.5s;
+}
+.footer-aboutus .container .row .col-item4 .footer-btn .btn-subscribe {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 305px;
+  height: 56px;
+}
+.footer-aboutus .container .row .col-item4 .footer-btn .btn-subscribe:hover {
+  background: #aa017e;
+  color: #fff;
+  transition: all 0.5s;
 }/*# sourceMappingURL=index.css.map */
