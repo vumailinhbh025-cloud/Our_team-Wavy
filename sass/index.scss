@@ -519,16 +519,6 @@
     }
 }
 
-@keyframes fade-down {
-    0% {
-        transform: translateY(20px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
 .level {
     min-height: 500px;
     padding-top: $p-4;
@@ -1200,7 +1190,7 @@
 
                     .btn-subscribe {
                         @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
-                        width: 305px;
+                        width: 310px;
                         height: 56px;
                     }
                 }
@@ -1214,10 +1204,7 @@
     position: absolute;
     width: 100%;
     z-index: 1;
-    // background-image: url(/images/yellow_top_wave_01.png);
-    // background-position: left top;
-    // background-size: 95% 150%;
-    // background-repeat: no-repeat;
+
     .container {
         padding: 20px 0px;
         max-width: 100%;
@@ -1304,56 +1291,284 @@
 
 }
 
-.carousel-about{
+.carousel-about {
     background-image: url(/images/yellow_top_wave_01.png), url(/images/Violet_top_left_wave.png);
     background-repeat: no-repeat;
     background-position: top left, bottom center;
     background-size: contain;
-    height: 750px;
-    position: relative;
-    .container{
+    min-height: 750px;
+
+    .container {
         width: 80%;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
-        position: absolute;
-        transform: translate(200px, 75px);
-        .book{
-            h1{
+        padding-top: 75px;
+
+        .book {
+            h1 {
                 @include style_text($text-2xl, $fw-bold, $color-primary);
             }
-            p{
-                @include style_text($text-6xl, $fw-bold,$color-dark);
+
+            p {
+                @include style_text($text-6xl, $fw-bold, $color-dark);
                 width: 80%;
+            }
+
+            .team {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                @extend .btn-warning;
+                transition: all 0.5s;
+                &:hover{
+                    a{
+                        color: $color-warning;
+                        transition: all 0.5s;
+                        z-index: 2;
+                    }
+                }
+                a{
+                    @include style_text($text-2xl, $fw-base,$color-light);
+                    text-decoration: none;
+                }
+                i{
+                    @include style_text($text-3xl, $fw-base, $color-light);
+                }
+            }
+
+        }
+    }
+}
+
+.features {
+    min-height: 700px;
+    background-color: #dcd1f0;
+    background-image: url(/images/Wave_White_bottom_right_shape_01.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 80px;
+
+            h1 {
+                @include style_text($text-2xl, $fw-bold, $color-primary);
+            }
+
+            .main-features {
+                @include style_text($text-6xl, $fw-bold, $color-dark);
+            }
+
+            .main-desc {
+                @include style_text($text-xl, $fw-base, $color-dark);
+                width: 85%;
+            }
+
+        }
+
+        .main-card {
+            .row {
+
+                .col-3 {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 15px;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        i {
+                            color: $color-primary;
+                            transition: all 0.5s;
+                        }
+
+                        .col-desc h1 {
+                            color: $color-dark;
+                            transition: all 0.5s
+                        }
+
+                    }
+
+                    i {
+                        @include style_text($text-5xl, $fw-base, $color-dark);
+                    }
+
+                    .col-desc {
+                        width: 80%;
+
+                        h1 {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        p {
+                            @include style_text($text-xl, $fw-base, $color-dark);
+                            width: 90%;
+                        }
+                    }
+                }
             }
         }
     }
 }
 
+.feedback {
+    min-height: 600px;
+    margin-top: $m-5;
 
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
 
+        .message-student {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
 
+            .feedback-description {
+                @include style_text($text-3xl, $fw-base, $color-dark);
+                width: 65%;
+                text-align: center;
+                font-style: italic;
+            }
 
+            .name-stu {
+                @include style_text($text-xl, $fw-semibold, $color-primary);
+            }
 
+            .major {
+                @include style_text($text-xl, $fw-base, $color-dark);
+            }
 
+            .speech-inner {
+                width: 80%;
+                position: absolute;
+                top: -135px;
+                left: 75px;
+                animation: fade-down 1.5s linear;
+                animation-iteration-count: infinite;
+            }
+        }
+    }
+}
 
+.teacher {
+    min-height: 620px;
+    background-image: url(/images/accent_bottom_wave_01.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
 
+    .container {
+        @extend .py-5;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
 
+        .introduce {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
 
+            h1 {
+                @include style_text($text-5xl, $fw-bold, $color-dark);
+            }
 
+            .btn-apply-now {
+                @include style_btn($text-2xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+        }
 
+        .row {
+            .col-3 {
+                .card {
+                    margin-top: 0px;
+                    transition: all 0.5s;
 
+                    &:hover {
+                        box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+                        transform: translateY(-20px);
+                        transition: all 0.5s;
+                    }
 
+                    .card-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: $p-5 $p-4;
 
+                        .card-title {
+                            @include style_text($text-base, $fw-medium, $color-primary);
+                        }
 
+                        .card-name {
+                            @include style_text($text-2xl, $fw-medium, $color-dark);
+                            padding: $p-4 auto;
+                        }
 
+                        .card-text {
+                            text-align: center;
+                            @include style_text($text-xl, $fw-base, $color-dark);
+                            width: 80%;
+                        }
 
+                        .social-teacher {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 20px;
 
+                            i {
+                                @include style_text($text-2xl, $fw-medium, $color-dark);
+                                padding-bottom: $p-2;
+                                transition: color 0.5s;
 
+                                &:hover {
+                                    color: $color-primary;
+                                    cursor: pointer;
+                                    transition: color 0.5s;
+                                }
+                            }
+                        }
+                    }
+                }
 
-.footer-aboutus{
-    min-height: 500px;
+            }
+        }
+    }
+}
+
+.footer-aboutus {
+    min-height: 480px;
     background-image: url(/images/footer_background.jpg);
     background-position: center;
     background-size: cover;
@@ -1569,7 +1784,512 @@
 
                     .btn-subscribe {
                         @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
-                        width: 305px;
+                        width: 310px;
+                        height: 56px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+//Team
+.header-team {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    .container {
+        padding: 20px 0px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            a {
+                @include style_text($text-2xl, $fw-semibold, $color-dark);
+                position: relative;
+                text-decoration: none;
+                transition: color 0.5s;
+
+                &:hover {
+                    color: $color-warning;
+                    cursor: pointer;
+                    transition: color 0.5s;
+
+                    &::after {
+                        width: 100%;
+                        transition: width 0.5s;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    height: 5px;
+                    width: 0%;
+                    background: $bg-warning;
+                    bottom: -8px;
+                    left: 0px;
+                    transition: width 0.5s;
+                }
+            }
+        }
+
+        .menu-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            .contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
+                width: 220px;
+                height: 50px;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                i {
+                    color: $color-dark;
+                    font-size: $text-3xl;
+                    transition: color 0.5s;
+
+                    &:hover {
+                        color: $color-warning;
+                        cursor: pointer;
+                        transition: color 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.carousel-team {
+    background-image: url(/images/yellow_top_wave_01.png), url(/images/Violet_top_left_wave.png);
+    background-repeat: no-repeat;
+    background-position: top left, bottom center;
+    background-size: contain;
+    min-height: 750px;
+
+    .container {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 75px;
+
+        .experts{
+            h1 {
+                @include style_text($text-2xl, $fw-bold, $color-primary);
+            }
+
+            p {
+                @include style_text($text-6xl, $fw-bold, $color-dark);
+                width: 80%;
+            }
+        }
+    }
+}
+.teacher-team {
+    min-height: 700px;
+    background-color: #dcd1f0;
+    background-image: url(/images/Wave_White_bottom_right_shape_01.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .container {
+        @extend .py-5;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        .row {
+            .col-3 {
+                .card {
+                    margin-top: 0px;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+                        transform: translateY(-20px);
+                        transition: all 0.5s;
+                    }
+
+                    .card-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding: $p-5 $p-4;
+
+                        .card-title {
+                            @include style_text($text-base, $fw-medium, $color-primary);
+                        }
+
+                        .card-name {
+                            @include style_text($text-2xl, $fw-medium, $color-dark);
+                            padding: $p-4 auto;
+                        }
+
+                        .card-text {
+                            text-align: center;
+                            @include style_text($text-xl, $fw-base, $color-dark);
+                            width: 80%;
+                            padding-bottom: $p-3;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+.register-team{
+    height: 700px;
+    margin-top: $m-2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/images/accent_bottom_wave_01.png);
+    background-position: bottom center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 150px;
+
+        .form-course {
+            background-color: $bg-light;
+            height: 520px;
+            width: 450px;
+            border-radius: 10px 10px 10px 10px;
+            padding: $p-5 $p-5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            border: 2px outset #ee5b54;
+
+            h1 {
+                @include style_text($text-4xl, $fw-semibold, $color-dark);
+            }
+
+            .form-infomation {
+                .row {
+                    .col-6 {
+                        .input-group {
+                            span {
+                                i {
+                                    color: $color-warning;
+                                    font-size: $text-2xl;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .english {
+                .form-floating {
+                    width: 405px;
+
+                    label {
+                        i {
+                            color: $color-warning;
+                            font-size: $text-2xl;
+                        }
+                    }
+                }
+            }
+
+            .message {
+                .form-floating {
+                    @extend .my-5;
+
+                    textarea {
+                        height: 200px;
+                        width: 406px;
+                        resize: vertical;
+                        /* Thường dùng để tránh làm vỡ giao diện hàng ngang */
+                        overflow: auto;
+                        /* Hiện thanh cuộn nếu chữ vượt quá khung */
+                    }
+
+                    label {
+                        font-size: $text-2xl;
+
+                        i {
+                            color: $color-warning;
+                            font-size: $text-xl;
+                        }
+                    }
+                }
+            }
+
+            .btn-send {
+                @include style_btn($text-2xl, $fw-medium, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 50px, $bg-light, $color-warning);
+                width: 180px;
+                height: 56px;
+            }
+        }
+    }
+}
+.footer-team{
+    min-height: 480px;
+    background-image: url(/images/footer_background.jpg);
+    background-position: center;
+    background-size: cover;
+
+    .container {
+        width: 80%;
+        @extend .py-5;
+
+        .row {
+            @extend .py-5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .col-item1 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .address {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .telephone {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .time {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .footer-social {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+
+                    i {
+                        color: $color-light;
+                        font-size: $text-2xl;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-dark;
+                            cursor: pointer;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item2 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .link {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item3 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-about {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item4 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-btn {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .mail {
+                        border-radius: 50px 50px 50px 50px;
+                        height: 56px;
+                        color: $color-light;
+                        background-color: $bg-primary;
+                        border: 2px solid $border-primary;
+                        box-shadow: none;
+                        transition: border 0.5s;
+
+                        &::placeholder {
+                            text-align: center;
+                            color: $color-light;
+                            /* Hoặc dùng biến $color-light nếu nó là màu trắng */
+                            opacity: 1;
+                            /* Đảm bảo màu hiển thị rõ trên Firefox */
+                        }
+
+                        &:hover {
+                            border: 2px solid $border-light;
+                            cursor: pointer;
+                            transition: border 0.5s;
+                        }
+                    }
+
+                    .btn-subscribe {
+                        @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
+                        width: 310px;
                         height: 56px;
                     }
                 }

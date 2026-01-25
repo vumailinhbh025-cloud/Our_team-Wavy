@@ -1,3 +1,5 @@
+@use './variable' as*;
+
 //định nghĩa các class component spacing
 $spacingValues: 0rem, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem;
 $i: 0;
@@ -67,15 +69,26 @@ $i: 0;
 
     $i: $i + 1;
 }
-.btn-warning{
+
+.btn-warning {
     border-radius: 50px;
-    padding: 15px 30px;
+    padding: $p-1 $p-3;
     cursor: pointer;
-    border: 2px solid #ee5b54;
-    font-size: 20px;
-    font-weight: 500;
-    color: #fff;
-    background:#ee5b54 ;
-    width: 180px;
-    height: 56px;
+    border: 2px solid $border-warning;
+    font-size: $text-xl;
+    font-weight: $fw-medium;
+    color: $color-light;
+    background: $bg-warning;
+    width: 220px;
+    height: 50px;
+    transition: all 0.5s;
+    &:hover{
+        background: $bg-light;
+        color: $color-warning;
+        transition: all 0.5s;
+    }
 }
+
+// @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
+// width: 220px;
+// height: 50px;
