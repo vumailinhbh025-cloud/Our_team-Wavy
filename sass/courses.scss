@@ -1,0 +1,749 @@
+@use "./base" as *;
+@use "./mixin" as *;
+@use "./variable" as *;
+@use "./component.scss" as*;
+
+.header-courses {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    .container {
+        padding: 20px 0px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+
+        @media (max-width: 1024px) {
+            img {
+                display: none;
+            }
+
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            @media (max-width: 1024px) {
+                gap: 25px;
+            }
+
+            a {
+                @include style_text($text-2xl, $fw-semibold, $color-dark);
+                position: relative;
+                text-decoration: none;
+                transition: color 0.5s;
+
+                &:hover {
+                    color: $color-warning;
+                    cursor: pointer;
+                    transition: color 0.5s;
+
+                    &::after {
+                        width: 100%;
+                        transition: width 0.5s;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    height: 5px;
+                    width: 0%;
+                    background: $bg-warning;
+                    bottom: -8px;
+                    left: 0px;
+                    transition: width 0.5s;
+                }
+            }
+        }
+
+        .menu-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            .contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
+                width: 220px;
+                height: 50px;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                i {
+                    color: $color-dark;
+                    font-size: $text-3xl;
+                    transition: color 0.5s;
+
+                    @media (max-width: 1024px) {
+                        font-size: $text-2xl;
+                    }
+
+                    &:hover {
+                        color: $color-warning;
+                        cursor: pointer;
+                        transition: color 0.5s;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.carousel-courses {
+    background-image: url(/images/yellow_top_wave_01.png), url(/images/Violet_top_left_wave.png);
+    background-repeat: no-repeat;
+    background-position: top left, bottom center;
+    background-size: contain;
+    min-height: 750px;
+    padding-bottom: $p-4;
+
+    .container {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 75px;
+
+        .passion {
+            h1 {
+                @include style_text($text-2xl, $fw-bold, $color-primary);
+            }
+
+            p {
+                @include style_text($text-6xl, $fw-bold, $color-dark);
+
+            }
+
+            .teamMe {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: $m-4;
+                @extend .btn-warning;
+                transition: all 0.5s;
+
+                &:hover {
+                    a {
+                        color: $color-warning;
+                        transition: all 0.5s;
+                        z-index: 2;
+                    }
+                }
+
+                a {
+                    @include style_text($text-2xl, $fw-base, $color-light);
+                    text-decoration: none;
+                }
+
+                i {
+                    @include style_text($text-3xl, $fw-base, $color-light);
+                }
+            }
+        }
+    }
+}
+
+.beginner {
+    min-height: 700px;
+    background-color: #dcd1f0;
+    background-image: url(/images/Wave_White_bottom_right_shape_01.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: fill;
+    padding: $p-3 $p-4;
+    .container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .level_A {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            width: 90%;
+            .level_desc {
+                h2 {
+                    @include style_text($text-2xl, $fw-bold, $color-primary);
+                    margin-bottom: 0px;
+                }
+
+                .level_title {
+                    @include style_text($text-5xl, $fw-bold, $color-dark);
+                    margin-bottom: $m-2;
+                }
+
+                .description {
+                    @include style_text($text-xl, $fw-light, $color-dark);
+                    width: 80%;
+                }
+
+                .level_description {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 18px;
+
+                    .description_edu {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .edu {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .description_trust {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .trust {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .description_blog {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .blog {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .courses-apply {
+                        @extend .btn-primary;
+                    }
+                }
+            }
+        }
+
+        .level_B {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 90%;
+            .level_content {
+                h2 {
+                    @include style_text($text-2xl, $fw-bold, $color-primary);
+                    margin-bottom: 0px;
+                }
+
+                .content-title {
+                    @include style_text($text-5xl, $fw-bold, $color-dark);
+                    margin-bottom: 0px;
+                }
+
+                .content-desc {
+                    @include style_text($text-xl, $fw-light, $color-dark);
+                    width: 80%;
+                }
+
+                .content-description {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 18px;
+                    
+                    .content_edu {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .edu {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .content_trust {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .trust {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .content_blog {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .blog {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+
+                    .courses-apply {
+                        @include style_btn($text-2xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                        width: 220px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}
+.advanced{
+    min-height: 500px;
+    margin-top: $m-5;
+    .container{
+        width: 80%;
+        padding: $p-4 $p-4;
+        margin-top: $m-5;
+        .level_C{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            .level_advanced{
+                h2{
+                    @include style_text($text-2xl, $fw-bold, $color-primary);
+                    margin-bottom: 0px;
+                }
+                .advanced-title{
+                    @include style_text($text-5xl, $fw-bold, $color-dark);
+                    margin-bottom: 0px;
+                }
+                .advanced-desc{
+                    @include style_text($text-xl, $fw-light, $color-dark);
+                    width: 80%;
+                }
+                .advanced-description{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 18px;
+                    .advanced_edu{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .edu {
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+                    .advanced_trust{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-xl, $fw-bold, $color-primary);
+                        }
+
+                        .trust{
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+                    .advanced_blog{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 15px;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            i {
+                                color: $color-dark;
+                                transition: color 0.5s
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-2xl, $fw-bold, $color-primary);
+                        }
+
+                        .blog{
+                            @include style_text($text-base, $fw-base, $color-dark);
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+                .advanced-apply{
+                    @include style_btn($text-2xl, $fw-medium, $color-light, $bg-primary, $p-1 $p-3, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                    width: 220px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}
+.footer-courses{
+    min-height: 480px;
+    background-image: url(/images/footer_background.jpg);
+    background-position: center;
+    background-size: cover;
+
+    .container {
+        width: 80%;
+        @extend .py-5;
+
+        .row {
+            @extend .py-5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .col-item1 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .address {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .telephone {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .time {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .footer-social {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+
+                    i {
+                        color: $color-light;
+                        font-size: $text-2xl;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-dark;
+                            cursor: pointer;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item2 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .link {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item3 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-about {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item4 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-btn {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .mail {
+                        border-radius: 50px 50px 50px 50px;
+                        height: 56px;
+                        color: $color-light;
+                        background-color: $bg-primary;
+                        border: 2px solid $border-primary;
+                        box-shadow: none;
+                        transition: border 0.5s;
+
+                        &::placeholder {
+                            text-align: center;
+                            color: $color-light;
+                            /* Hoặc dùng biến $color-light nếu nó là màu trắng */
+                            opacity: 1;
+                            /* Đảm bảo màu hiển thị rõ trên Firefox */
+                        }
+
+                        &:hover {
+                            border: 2px solid $border-light;
+                            cursor: pointer;
+                            transition: border 0.5s;
+                        }
+                    }
+
+                    .btn-subscribe {
+                        @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
+                        width: 310px;
+                        height: 56px;
+                    }
+                }
+            }
+        }
+    }
+}
