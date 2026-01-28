@@ -376,4 +376,23 @@
   background: #fff;
   color: #ee5b54;
   transition: all 0.5s;
+}
+
+.btn-primary {
+  border-radius: 50px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  border: 2px solid #b61984;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background: #b61984;
+  width: 220px;
+  height: 50px;
+  transition: all 0.5s;
+}
+.btn-primary:hover {
+  background: #dcd1f0;
+  color: #b61984;
+  transition: all 0.5s;
 }/*# sourceMappingURL=component.css.map */

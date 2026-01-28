@@ -8,10 +8,6 @@
     width: 100%;
     z-index: 1;
 
-    // background-image: url(/images/yellow_top_wave_01.png);
-    // background-position: left top;
-    // background-size: 95% 150%;
-    // background-repeat: no-repeat;
     .container {
         padding: 20px 0px;
         max-width: 100%;
@@ -21,10 +17,23 @@
         align-items: center;
         gap: 120px;
 
+        @media (max-width: 1024px) {
+            img {
+                display: none;
+            }
+
+            display: flex;
+            gap: 30px;
+        }
+
         .menu {
             display: flex;
             align-items: center;
             gap: 50px;
+
+            @media (max-width: 1024px) {
+                gap: 25px;
+            }
 
             a {
                 @include style_text($text-2xl, $fw-semibold, $color-dark);
@@ -85,12 +94,17 @@
                     font-size: $text-3xl;
                     transition: color 0.5s;
 
+                    @media (max-width: 1024px) {
+                        font-size: $text-2xl;
+                    }
+
                     &:hover {
                         color: $color-warning;
                         cursor: pointer;
                         transition: color 0.5s;
                     }
                 }
+
             }
         }
     }
@@ -99,7 +113,6 @@
 }
 
 .carousel {
-
     background-image: url(/images/yellow_top_wave_01.png), url(/images/purple_bottom_wave_01.png);
     background-repeat: no-repeat;
     background-position: top left, bottom center;
@@ -113,7 +126,19 @@
         align-items: center;
         gap: 80px;
 
+        @media (max-width: 1024px) {
+            flex-direction: column-reverse;
+        }
+
         .learn {
+            @media (max-width: 1024px) {
+                padding-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             h1 {
                 @include style_text($text-3xl, $fw-semibold, $color-primary);
                 margin-bottom: $m-1;
@@ -201,70 +226,57 @@
 
     .container {
         .row {
-            height: 100%;
-            width: 90%;
-            margin: 0px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+            .col-md-4 {
+                .card-item {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20px;
+                    transition: all 0.5s;
 
-        .col {
-            width: calc(100%/3);
+                    &:hover {
 
-            .card-item {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-                padding: $p-3;
-                transition: all 0.5s;
+                        .card-info .card-title,
+                        .card-info .card-view,
+                        .card-info .card-view i {
+                            color: $color-dark;
+                            transition: all 0.5s;
+                        }
 
-                &:hover {
-
-                    .card-info .card-title,
-                    .card-info .card-view,
-                    .card-info .card-view i {
-                        color: $color-dark;
-                        transition: all 0.5s;
+                        i {
+                            color: $color-primary;
+                            transition: all 0.5s;
+                        }
                     }
 
                     i {
-                        color: $color-primary;
-                        transition: all 0.5s;
-                    }
-                }
-
-                i {
-                    @include style_text($text-8xl, $fw-medium, $color-dark);
-                    transition: all 0.5s;
-                }
-
-                .card-info {
-                    .card-title {
-                        @include style_text($text-2xl, $fw-semibold, $color-primary);
-                        padding-bottom: $p-1;
+                        @include style_text($text-8xl, $fw-medium, $color-dark);
                         transition: all 0.5s;
                     }
 
-                    .card-desc {
-                        @include style_text($text-2xl, $fw-base, $color-dark);
-                        padding-bottom: $p-2;
-                    }
-
-                    .card-view {
-                        display: flex;
-                        align-items: center;
-                        transition: all 0.5s;
-                        @include style_text($text-2xl, $fw-semibold, $color-primary);
-
-                        i {
-                            font-size: 30px;
-                            color: $color-primary;
+                    .card-info {
+                        .card-title {
+                            @include style_text($text-2xl, $fw-semibold, $color-primary);
+                            transition: all 0.5s;
                         }
 
+                        .card-desc {
+                            @include style_text($text-xl, $fw-base, $color-dark);
+
+                        }
+
+                        .card-view {
+                            display: flex;
+                            align-items: center;
+                            transition: all 0.5s;
+                            @include style_text($text-2xl, $fw-semibold, $color-primary);
+
+                            i {
+                                font-size: 30px;
+                                color: $color-primary;
+                            }
+                        }
                     }
                 }
             }
@@ -281,6 +293,8 @@
     background-position: bottom;
     margin-top: 60px;
 
+    @media (max-width: 1024px) {}
+
     .container {
         display: flex;
         flex-direction: column-reverse;
@@ -296,8 +310,17 @@
             align-items: center;
             flex-wrap: wrap;
 
+            @media (max-width: 1024px) {
+                padding-bottom: $p-5;
+                gap: 30px;
+            }
+
             .slide {
                 width: calc(100%/4);
+
+                @media (max-width: 1024px) {
+                    width: calc(100%/1);
+                }
 
                 .bubble-box {
                     display: flex;
@@ -320,6 +343,11 @@
                     img {
                         width: 100px;
                         height: 100px;
+
+                        @media (max-width: 1024px) {
+                            padding-top: $p-2;
+                            ;
+                        }
                     }
 
                     .student-desc {
@@ -330,18 +358,30 @@
                             font-style: italic;
                             text-align: center;
                             padding-bottom: $p-2;
+
+                            @media (max-width: 1024px) {
+                                padding-bottom: 0px;
+                            }
                         }
 
                         .name {
                             @include style_text($text-xl, $fw-semibold, $color-primary);
                             text-align: center;
                             padding-bottom: $p-1;
+
+                            @media (max-width: 1024px) {
+                                padding-bottom: $p-0;
+                            }
                         }
 
                         .job {
                             @include style_text($text-xl, $fw-semibold, $color-dark);
                             text-align: center;
                             padding-bottom: $p-2;
+
+                            @media (max-width: 1024px) {
+                                padding-bottom: $p-0;
+                            }
                         }
                     }
                 }
@@ -477,7 +517,23 @@
         align-items: center;
         gap: 20px;
 
+        @media (max-width: 1024px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: $p-5;
+        }
+
         .description {
+            @media (max-width: 1024px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: $p-4;
+            }
+
             .title {
                 @include style_text($text-2xl, $fw-semibold, $color-primary);
             }
@@ -485,10 +541,20 @@
             .title-desc {
                 @include style_text($text-5xl, $fw-bold, $color-dark);
                 width: 70%;
+
+                @media (max-width: 1024px) {
+                    width: 100%;
+                    text-align: center;
+                }
             }
 
             .desc {
                 @include style_text($text-2xl, $fw-base, $color-dark);
+
+                @media (max-width: 1024px) {
+                    width: 80%;
+                    text-align: center;
+                }
             }
 
             .btn-begin {
@@ -534,12 +600,26 @@
         align-items: center;
         gap: 40px;
 
+        @media (max-width: 1024px) {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-self: center;
+            align-items: center;
+        }
+
         .img-level {
             animation: fade-down 1s;
             animation-iteration-count: infinite;
         }
 
         .level-b2 {
+            @media (max-width: 1024px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             .b2 {
                 @include style_text($text-2xl, $fw-semibold, $color-primary);
                 margin-bottom: $m-1;
@@ -552,9 +632,18 @@
 
             .intro-desc {
                 @include style_text($text-2xl, $fw-base, $color-dark);
+
+                @media (max-width: 1024px) {
+                    text-align: center;
+                    width: 80%;
+                }
             }
 
             .accordion {
+                @media (max-width: 1024px) {
+                    width: 90%;
+                }
+
                 .accordion-item {
                     .accordion-header {
                         .accordion-button {
@@ -606,6 +695,12 @@
             animation: fade-down 1s;
             animation-iteration-count: infinite;
             z-index: 1;
+
+            @media (max-width: 1024px) {
+                left: -70px;
+                top: -20px;
+                width: 60%;
+            }
         }
 
         .card-offer {
@@ -619,8 +714,17 @@
             align-items: center;
             border-radius: 20px 20px 20px 20px;
 
+            @media (max-width: 1024px) {
+                width: 840px;
+
+            }
+
             .card-intro {
                 z-index: 2;
+
+                @media (max-width: 1024px) {
+                    padding-left: 50px;
+                }
 
                 .special {
                     @include style_text($text-2xl, $fw-medium, $color-light);
@@ -630,6 +734,11 @@
                 .introduction {
                     @include style_text($text-5xl, $fw-bold, $color-light);
                     margin-bottom: $m-0;
+
+                    @media (max-width: 1024px) {
+                        font-size: $text-3xl;
+
+                    }
                 }
 
                 .card-price {
@@ -801,13 +910,18 @@
                         margin-bottom: 60px;
 
                         &::after {
-                            width: 25%;
+                            width: 30%;
                             position: absolute;
                             content: "";
                             height: 2px;
                             background-color: $bg-warning;
                             transform: translateX(-148px);
                             bottom: -35px;
+
+                            @media (max-width: 1024px) {
+                                transform: translateX(-210px);
+                                width: 85%;
+                            }
                         }
                     }
 
@@ -839,6 +953,10 @@
         max-width: 1350px;
         margin: 0 auto;
         position: relative;
+
+        @media (max-width: 1024px) {
+            width: 80%;
+        }
 
         i {
             font-size: $text-2xl;
@@ -873,6 +991,10 @@
                 height: 350px;
                 object-fit: cover;
                 width: calc(100%/4);
+
+                @media (max-width: 1024px) {
+                    width: calc(100%/3);
+                }
             }
         }
     }
@@ -895,6 +1017,12 @@
         justify-content: center;
         align-items: center;
         gap: 150px;
+
+        @media (max-width: 1024px) {
+            img {
+                display: none;
+            }
+        }
 
         .form-course {
             background-color: $bg-light;
@@ -1192,6 +1320,10 @@
                         @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
                         width: 310px;
                         height: 56px;
+
+                        @media (max-width: 1024px) {
+                            width: 184px;
+                        }
                     }
                 }
             }
@@ -1321,23 +1453,28 @@
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
+                margin-bottom: $m-4;
                 @extend .btn-warning;
                 transition: all 0.5s;
-                &:hover{
-                    a{
+
+                &:hover {
+                    a {
                         color: $color-warning;
                         transition: all 0.5s;
                         z-index: 2;
                     }
                 }
-                a{
-                    @include style_text($text-2xl, $fw-base,$color-light);
+
+                a {
+                    @include style_text($text-2xl, $fw-base, $color-light);
                     text-decoration: none;
                 }
-                i{
+
+                i {
                     @include style_text($text-3xl, $fw-base, $color-light);
                 }
             }
+
 
         }
     }
@@ -1376,6 +1513,32 @@
             .main-desc {
                 @include style_text($text-xl, $fw-base, $color-dark);
                 width: 85%;
+            }
+
+            .aboutMe {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                @extend .btn-primary;
+                transition: all 0.5s;
+
+                &:hover {
+                    a {
+                        color: $color-primary;
+                        transition: all 0.5s;
+                        z-index: 2;
+                    }
+                }
+
+                a {
+                    @include style_text($text-2xl, $fw-base, $color-light);
+                    text-decoration: none;
+                }
+
+                i {
+                    @include style_text($text-3xl, $fw-base, $color-light);
+                }
             }
 
         }
@@ -1808,6 +1971,7 @@
     position: absolute;
     width: 100%;
     z-index: 1;
+
     .container {
         padding: 20px 0px;
         max-width: 100%;
@@ -1907,7 +2071,7 @@
         align-items: center;
         padding-top: 75px;
 
-        .experts{
+        .experts {
             h1 {
                 @include style_text($text-2xl, $fw-bold, $color-primary);
             }
@@ -1916,9 +2080,37 @@
                 @include style_text($text-6xl, $fw-bold, $color-dark);
                 width: 80%;
             }
+
+            .teamMe {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: $m-4;
+                @extend .btn-warning;
+                transition: all 0.5s;
+
+                &:hover {
+                    a {
+                        color: $color-warning;
+                        transition: all 0.5s;
+                        z-index: 2;
+                    }
+                }
+
+                a {
+                    @include style_text($text-2xl, $fw-base, $color-light);
+                    text-decoration: none;
+                }
+
+                i {
+                    @include style_text($text-3xl, $fw-base, $color-light);
+                }
+            }
         }
     }
 }
+
 .teacher-team {
     min-height: 700px;
     background-color: #dcd1f0;
@@ -1936,6 +2128,7 @@
         justify-content: center;
         align-items: center;
         gap: 50px;
+
         .row {
             .col-3 {
                 .card {
@@ -1977,7 +2170,8 @@
         }
     }
 }
-.register-team{
+
+.register-team {
     height: 700px;
     margin-top: $m-2;
     display: flex;
@@ -2072,7 +2266,580 @@
         }
     }
 }
-.footer-team{
+
+.footer-team {
+    min-height: 480px;
+    background-image: url(/images/footer_background.jpg);
+    background-position: center;
+    background-size: cover;
+
+    .container {
+        width: 80%;
+        @extend .py-5;
+
+        .row {
+            @extend .py-5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .col-item1 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .address {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .telephone {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .time {
+                    color: $color-light;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    i {
+                        color: $color-light;
+                    }
+                }
+
+                .footer-social {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+
+                    i {
+                        color: $color-light;
+                        font-size: $text-2xl;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-dark;
+                            cursor: pointer;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item2 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .link {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item3 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-about {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+
+                    .active {
+                        @include style_text($text-base, $fw-base, $color-light);
+                        cursor: pointer;
+                        text-decoration: none;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-warning;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+
+            .col-item4 {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                h1 {
+                    @include style_text($text-2xl, $fw-bold, $color-light);
+                    margin-bottom: 0px;
+                }
+
+                .footer-btn {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .mail {
+                        border-radius: 50px 50px 50px 50px;
+                        height: 56px;
+                        color: $color-light;
+                        background-color: $bg-primary;
+                        border: 2px solid $border-primary;
+                        box-shadow: none;
+                        transition: border 0.5s;
+
+                        &::placeholder {
+                            text-align: center;
+                            color: $color-light;
+                            /* Hoặc dùng biến $color-light nếu nó là màu trắng */
+                            opacity: 1;
+                            /* Đảm bảo màu hiển thị rõ trên Firefox */
+                        }
+
+                        &:hover {
+                            border: 2px solid $border-light;
+                            cursor: pointer;
+                            transition: border 0.5s;
+                        }
+                    }
+
+                    .btn-subscribe {
+                        @include style_btn($text-2xl, $fw-medium, $color-dark, $bg-light, $p-1 $p-3, 2px solid $border-light, 50px, #aa017e, $color-light);
+                        width: 310px;
+                        height: 56px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//About Me
+.header-aboutMe {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    .container {
+        padding: 20px 0px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+
+            a {
+                @include style_text($text-2xl, $fw-semibold, $color-dark);
+                position: relative;
+                text-decoration: none;
+                transition: color 0.5s;
+
+                &:hover {
+                    color: $color-warning;
+                    cursor: pointer;
+                    transition: color 0.5s;
+
+                    &::after {
+                        width: 100%;
+                        transition: width 0.5s;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    height: 5px;
+                    width: 0%;
+                    background: $bg-warning;
+                    bottom: -8px;
+                    left: 0px;
+                    transition: width 0.5s;
+                }
+            }
+        }
+
+        .menu-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            .contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
+                width: 220px;
+                height: 50px;
+            }
+
+            .social {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                i {
+                    color: $color-dark;
+                    font-size: $text-3xl;
+                    transition: color 0.5s;
+
+                    &:hover {
+                        color: $color-warning;
+                        cursor: pointer;
+                        transition: color 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.carousel-aboutMe {
+    background-image: url(/images/yellow_top_wave_01.png), url(/images/Violet_top_left_wave.png);
+    background-repeat: no-repeat;
+    background-position: top left, bottom center;
+    background-size: contain;
+    min-height: 750px;
+
+    .container {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 75px;
+
+        .passion {
+            h1 {
+                @include style_text($text-2xl, $fw-bold, $color-primary);
+            }
+
+            p {
+                @include style_text($text-6xl, $fw-bold, $color-dark);
+                width: 70%;
+            }
+
+            .teamAboutMe {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: $m-4;
+                @extend .btn-warning;
+                transition: all 0.5s;
+
+                &:hover {
+                    a {
+                        color: $color-warning;
+                        transition: all 0.5s;
+                        z-index: 2;
+                    }
+                }
+
+                a {
+                    @include style_text($text-2xl, $fw-base, $color-light);
+                    text-decoration: none;
+                }
+
+                i {
+                    @include style_text($text-3xl, $fw-base, $color-light);
+                }
+            }
+        }
+    }
+}
+
+.italy {
+    min-height: 750px;
+    background-color: #dcd1f0;
+    background-image: url(/images/Wave_White_bottom_right_shape_01.png);
+    background-position: bottom;
+    background-size: auto;
+    background-repeat: no-repeat;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .italy-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 30px;
+
+            .italy-content {
+                width: 70%;
+
+                .nation {
+                    @include style_text($text-2xl, $fw-bold, $color-primary);
+                    margin-bottom: 0;
+                }
+
+                .name-teacher {
+                    @include style_text($text-6xl, $fw-bold, $color-dark);
+                }
+
+                .italy-intro {
+                    @include style_text($text-xl, $fw-light, $color-dark);
+                }
+
+                .italy-award {
+                    @include style_text($text-xl, $fw-base, $color-dark);
+                }
+
+                .socialMe {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    i {
+                        color: $color-dark;
+                        font-size: $text-xl;
+                        transition: color 0.5s;
+
+                        &:hover {
+                            color: $color-primary;
+                            cursor: pointer;
+                            transition: color 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+
+        .italy-bottom {
+            padding-bottom: $p-3;
+
+            .row {
+                .col-md-4 {
+                    .card-item {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        gap: 20px;
+                        transition: all 0.5s;
+
+                        &:hover {
+                            .card-info .card-title {
+                                color: $color-dark;
+                                transition: all 0.5s;
+                            }
+
+                            i {
+                                color: $color-primary;
+                                transition: all 0.5s;
+                            }
+                        }
+
+                        i {
+                            @include style_text($text-6xl, $fw-medium, $color-dark);
+                            transition: all 0.5s;
+                        }
+
+                        .card-info {
+                            .card-title {
+                                @include style_text($text-2xl, $fw-semibold, $color-primary);
+                                padding-bottom: $p-3;
+                                transition: all 0.5s;
+                            }
+
+                            .card-desc {
+                                @include style_text($text-xl, $fw-base, $color-dark);
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.orther {
+    min-height:600px;
+    background-image: url(/images/accent_bottom_wave_01.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+
+        .orther-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            h1 {
+                @include style_text($text-6xl, $fw-bold, $color-dark)
+            }
+
+            .orther-apply {
+                @include style_btn($text-2xl, $fw-semibold, $color-light, $bg-primary, $p-1 $p-2, 2px solid $border-primary, 50px, $bg-light, $color-primary);
+                width: 220px;
+                height: 70px;
+            }
+
+        }
+
+        .orther-list {
+            .row {
+                .col-md-3 {
+                    .card {
+                        transition: all 0.5s;
+                        &:hover{
+                            box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+                            transition: all 0.5s;
+                        }
+                        .card-body {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding: $p-4 $p-3;
+                            .hometown {
+                                margin-bottom: 0px;
+                                @include style_text($text-base, $fw-semibold, $color-primary);
+                            }
+
+                            .card-title {
+                                @include style_text($text-3xl, $fw-bold, $color-dark);
+                            }
+
+                            .card-text {
+                                @include style_text($text-xl, $fw-base, $color-dark);
+                                text-align: center;
+                            }
+
+                            .socialMe {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 10px;
+
+                                i {
+                                    color: $color-dark;
+                                    font-size: $text-xl;
+                                    transition: color 0.5s;
+
+                                    &:hover {
+                                        color: $color-primary;
+                                        cursor: pointer;
+                                        transition: color 0.5s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-aboutMe {
     min-height: 480px;
     background-image: url(/images/footer_background.jpg);
     background-position: center;

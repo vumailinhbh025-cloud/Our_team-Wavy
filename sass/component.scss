@@ -89,6 +89,25 @@ $i: 0;
     }
 }
 
+.btn-primary {
+    border-radius: 50px;
+    padding: $p-1 $p-3;
+    cursor: pointer;
+    border: 2px solid $border-primary;
+    font-size: $text-xl;
+    font-weight: $fw-medium;
+    color: $color-light;
+    background: $bg-primary;
+    width: 220px;
+    height: 50px;
+    transition: all 0.5s;
+    &:hover{
+        background: #dcd1f0;
+        color: $color-primary;
+        transition: all 0.5s;
+    }
+}
+
 // @include style_btn($text-xl, $fw-base, $color-light, $bg-warning, $p-1 $p-3, 2px solid $border-warning, 30px, $bg-light, $color-warning);
 // width: 220px;
 // height: 50px;
